@@ -191,6 +191,13 @@ describe("applyAuthMethod clears the static key for the other providers' tabs", 
 
 	// The discriminator is only seeded on mount and after the key resolves; with none, the form
 	// has said nothing about the method and must not clear a key it did not touch.
+	it("sends an explicit empty value for keyless providers like ollama and sgl when value is unset", () => {
+		const ollama = applyAuthMethod({ name: "k", value: undefined, ollama_key_config: { url: { value: "http://localhost:11434" } } }, true);
+		expect(ollama.value).toEqual({ value: "" });
+		const sgl = applyAuthMethod({ name: "k", value: undefined, sgl_key_config: { url: { value: "http://localhost:30000" } } }, true);
+		expect(sgl.value).toEqual({ value: "" });
+	});
+
 	it("leaves the value alone when no method was chosen", () => {
 		const out = applyAuthMethod({ name: "k", value: undefined, azure_key_config: { endpoint } }, true);
 		expect(out.value).toBeUndefined();

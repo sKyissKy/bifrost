@@ -96,6 +96,11 @@ export const applyAuthMethod = (key: KeyPayload, isEditing: boolean): Record<str
 			out.oauth_key_config = null;
 		}
 	}
+	if ("ollama_key_config" in key || "sgl_key_config" in key) {
+		if (!isSet(key.value)) {
+			usesStaticKey = false;
+		}
+	}
 	if (!usesStaticKey && !isSet(key.value)) {
 		out.value = { value: "" };
 	}

@@ -183,7 +183,7 @@ func ListModelsByKey(
 	req.Header.SetMethod(http.MethodGet)
 	req.Header.SetContentType("application/json")
 
-	if key.Value.GetValue() != "" {
+	if strings.TrimSpace(key.Value.GetValue()) != "" {
 		req.Header.Set("Authorization", "Bearer "+key.Value.GetValue())
 	}
 
@@ -238,7 +238,7 @@ func ListModelsByKey(
 // Handle*Request functions that take an authHeader map.
 func BearerAuthHeader(key schemas.Key) map[string]string {
 	headers := map[string]string{}
-	if key.Value.GetValue() != "" {
+	if strings.TrimSpace(key.Value.GetValue()) != "" {
 		headers["Authorization"] = "Bearer " + key.Value.GetValue()
 	}
 	return headers
@@ -322,7 +322,7 @@ func HandleOpenAIModelRetrieveRequest(
 	req.Header.SetMethod(http.MethodGet)
 	req.Header.SetContentType("application/json")
 
-	if key.Value.GetValue() != "" {
+	if strings.TrimSpace(key.Value.GetValue()) != "" {
 		req.Header.Set("Authorization", "Bearer "+key.Value.GetValue())
 	}
 

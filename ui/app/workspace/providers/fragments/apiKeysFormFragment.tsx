@@ -408,7 +408,8 @@ export function ApiKeyFormFragment({ control, providerName, baseProviderType, fo
 				!isVertex &&
 				!isDatabricks &&
 				!isOpenAICompatible &&
-				!isGithubCopilot && (
+				!isGithubCopilot &&
+				!isKeylessProvider && (
 					<FormField
 						control={control}
 						name={`key.value`}

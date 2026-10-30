@@ -22,7 +22,7 @@ export const SUPPORTED_LOCALES = [
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]["code"];
 
-export const DEFAULT_LOCALE: SupportedLocale = "en";
+export const DEFAULT_LOCALE: SupportedLocale = "zh-CN";
 
 const supportedLocaleCodes: readonly string[] = SUPPORTED_LOCALES.map((locale) => locale.code);
 
@@ -63,7 +63,7 @@ if (!i18n.isInitialized) {
 				escapeValue: false,
 			},
 			detection: {
-				order: ["localStorage", "navigator"],
+				order: ["localStorage"],
 				lookupLocalStorage: LOCALE_STORAGE_KEY,
 				caches: ["localStorage"],
 			},
