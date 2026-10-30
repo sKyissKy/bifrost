@@ -33,6 +33,7 @@ concurrency:
 
 jobs:
   benchmarks:
+    if: github.repository == 'maximhq/bifrost'
     name: Benchmarks (${{ matrix.name }})
     # Pull requests from outside contributors (forks, or authors who are not members
     # or owners of maximhq) cannot get a runner until @maximhq/bifrost-admin approves
