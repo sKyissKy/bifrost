@@ -1,0 +1,35 @@
+services:
+  bifrost:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NPM_REGISTRY: https://registry.npmmirror.com
+        GOPROXY: https://goproxy.cn,direct
+    image: bifrost-zh:latest
+    container_name: bifrost
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # 服务监听端口与主机
+      - APP_PORT=8080
+      - APP_HOST=0.0.0.0
+      # 日志级别 (debug / info / warn / error) 与格式 (console / json)
+      - LOG_LEVEL=info
+      - LOG_STYLE=console
+      # 初始安装令牌 (首次登录初始化管理员密码时使用)
+      - BIFROST_SETUP_TOKEN=bifrost-admin-token
+      # 数据存储目录
+      - APP_DIR=/app/data
+      # 容器时区
+      - TZ=Asia/Shanghai
+    volumes:
+      # 持久化存储 SQLite 数据库 (config.db, logs.db) 和配置文件
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
