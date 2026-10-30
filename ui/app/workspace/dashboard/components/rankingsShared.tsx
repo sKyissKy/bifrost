@@ -4,10 +4,10 @@ import { ArrowDown, ArrowUp, ArrowUpDown, Minus } from "lucide-react";
 export { formatNumber, COMPACT_NUMBER_FORMAT };
 
 export function formatCost(value: number): string {
-	if (value >= 1) return `$${value.toFixed(2)}`;
-	if (value >= 0.01) return `$${value.toFixed(3)}`;
-	if (value > 0) return `$${value.toFixed(4)}`;
-	return "$0.00";
+	if (value >= 1) return `¥${value.toFixed(2)}`;
+	if (value >= 0.01) return `¥${value.toFixed(3)}`;
+	if (value > 0) return `¥${value.toFixed(4)}`;
+	return "¥0.00";
 }
 
 export function TrendBadge({

@@ -1069,7 +1069,7 @@
 		"additionalHelp": "附加在 Warp 内置提示之后，不会替换它。适合写本地命名习惯或团队结构。",
 		"behaviorAndLimits": "行为与限制",
 		"behaviorHelp": "Warp 如何采样、每个问题最多走多远，以及对话保留多久。",
-		"additionalPlaceholder": "费用以美元计。团队 ID 对应 Notion 中的小队。",
+		"additionalPlaceholder": "费用以人民币计。团队 ID 对应 Notion 中的小队。",
 		"backfill": "回填嵌入",
 		"backfillHelp": "为已有日志时间窗里已完成的对话建立索引。在后台运行，可以取消，并会跨批次安全续跑。",
 		"start": "开始",

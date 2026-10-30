@@ -221,12 +221,12 @@ function OverviewTabImpl({
 					totalLabel={t("labels.total")}
 					total={
 						costTotal !== null ? (
-							<NumberFlow value={costTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "USD" }} />
+							<NumberFlow value={costTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "CNY" }} />
 						) : undefined
 					}
 					totalTooltip={
 						costTotal !== null
-							? costTotal.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 6 })
+							? costTotal.toLocaleString("en-US", { style: "currency", currency: "CNY", maximumFractionDigits: 6 })
 							: undefined
 					}
 					legend={

@@ -126,7 +126,7 @@ import {
 
 // Full-precision cost for the detail view; per-request costs are often < $0.01,
 // where formatCost's 2-4 dp rounding would hide the value.
-const formatCostPrecise = (value?: number): string => `$${parseFloat((value ?? 0).toFixed(6))}`;
+const formatCostPrecise = (value?: number): string => `¥${parseFloat((value ?? 0).toFixed(6))}`;
 
 const formatRealtimeTransport = (value: unknown): string => {
 	const transport = String(value ?? "").trim();

@@ -177,12 +177,12 @@ function ProviderUsageTabImpl({
 				totalLabel={t("labels.total")}
 				total={
 					providerCostTotal !== null ? (
-						<NumberFlow value={providerCostTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "USD" }} />
+						<NumberFlow value={providerCostTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "CNY" }} />
 					) : undefined
 				}
 				totalTooltip={
 					providerCostTotal !== null
-						? providerCostTotal.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 6 })
+						? providerCostTotal.toLocaleString("en-US", { style: "currency", currency: "CNY", maximumFractionDigits: 6 })
 						: undefined
 				}
 				legend={

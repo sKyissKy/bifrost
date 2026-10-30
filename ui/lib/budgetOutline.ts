@@ -46,7 +46,7 @@ export function periodRank(duration?: string | null): number {
 // values keep two places ("$23.48"). Matches the prototype's `money()`.
 export function money(value: number | null | undefined): string {
 	const v = Number(value) || 0;
-	return "$" + (v % 1 ? v.toFixed(2) : String(v));
+	return "¥" + (v % 1 ? v.toFixed(2) : String(v));
 }
 
 // "$50/wk · $150/mo" — every budget line joined, in ascending period order.

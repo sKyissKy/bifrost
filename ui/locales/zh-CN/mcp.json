@@ -356,7 +356,7 @@
 			"toolName": "工具名称",
 			"autoExecute": "自动执行",
 			"learnAutoExecuteAria": "了解自动执行与 Agent Mode",
-			"costUsd": "费用 (USD)",
+			"costUsd": "费用 (CNY)",
 			"enableToolAria": "启用 {{name}}",
 			"disableToolAria": "禁用 {{name}}",
 			"enableAutoExecuteAria": "为 {{name}} 启用自动执行",

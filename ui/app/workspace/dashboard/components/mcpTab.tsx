@@ -105,12 +105,12 @@ function MCPTabImpl({
 				totalLabel={t("labels.total")}
 				total={
 					mcpCostTotal !== null ? (
-						<NumberFlow value={mcpCostTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "USD" }} />
+						<NumberFlow value={mcpCostTotal} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "CNY" }} />
 					) : undefined
 				}
 				totalTooltip={
 					mcpCostTotal !== null
-						? mcpCostTotal.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 6 })
+						? mcpCostTotal.toLocaleString("en-US", { style: "currency", currency: "CNY", maximumFractionDigits: 6 })
 						: undefined
 				}
 				legend={

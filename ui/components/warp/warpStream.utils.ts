@@ -486,9 +486,9 @@ export function formatWarpUsage(usage: WarpUsage | undefined): string | null {
 	if (typeof cost === "number" && cost > 0) {
 		// Sub-cent costs are common; never round a real charge down to something that reads as free.
 		if (cost < 0.0001) {
-			parts.push("<$0.0001");
+			parts.push("<¥0.0001");
 		} else {
-			parts.push(cost < 0.01 ? `$${cost.toFixed(4)}` : `$${cost.toFixed(2)}`);
+			parts.push(cost < 0.01 ? `¥${cost.toFixed(4)}` : `¥${cost.toFixed(2)}`);
 		}
 	}
 
@@ -625,10 +625,10 @@ export function splitWarpCharts(text: string, isStreaming: boolean): WarpAnswerS
 export function formatWarpChartValue(unit: WarpChartSpec["unit"], value: number): string {
 	switch (unit) {
 		case "usd":
-			if (value === 0) return "$0";
+			if (value === 0) return "¥0";
 			// As in formatWarpUsage: "$0.0000" would read a real cost as free.
-			if (value > 0 && value < 0.0001) return "<$0.0001";
-			return value < 0.01 ? `$${value.toFixed(4)}` : `$${value.toFixed(2)}`;
+			if (value > 0 && value < 0.0001) return "<¥0.0001";
+			return value < 0.01 ? `¥${value.toFixed(4)}` : `¥${value.toFixed(2)}`;
 		case "ms":
 			return value >= 1000 ? `${(value / 1000).toFixed(2)}s` : `${value.toFixed(0)}ms`;
 		case "percent":

@@ -13,14 +13,14 @@ export function formatCompactNumber(value: number, maximumFractionDigits = 2): s
 }
 
 export function formatCurrencyNumber(value: number, maximumFractionDigits = 2): string {
-	if (!Number.isFinite(value)) return "$0";
+	if (!Number.isFinite(value)) return "¥0";
 	if (value !== 0 && Math.abs(value) < 0.01) {
-		return `$${value.toFixed(4)}`;
+		return `¥${value.toFixed(4)}`;
 	}
 	return new Intl.NumberFormat("en-US", {
 		...COMPACT_NUMBER_FORMAT,
 		style: "currency",
-		currency: "USD",
+		currency: "CNY",
 		maximumFractionDigits,
 	}).format(value);
 }
@@ -37,7 +37,7 @@ export const DEFAULT_TOKEN_PRICE_MAX_FRACTION_DIGITS = 6;
  * @returns Formatted dollar price string.
  */
 function formatTokenPriceValue(cost: number, maximumFractionDigits = DEFAULT_TOKEN_PRICE_MAX_FRACTION_DIGITS): string {
-	return `$${(cost * TOKEN_PRICE_MULTIPLIER).toLocaleString("en-US", {
+	return `¥${(cost * TOKEN_PRICE_MULTIPLIER).toLocaleString("en-US", {
 		minimumFractionDigits: 2,
 		maximumFractionDigits,
 	})}`;
@@ -66,7 +66,7 @@ export function formatTokenPriceCompact(cost?: number, maximumFractionDigits = D
  */
 export function formatTokenPriceFull(cost?: number, maximumFractionDigits = DEFAULT_TOKEN_PRICE_MAX_FRACTION_DIGITS): string {
 	if (cost === undefined || cost === null || !Number.isFinite(cost)) return "Not available";
-	return `${formatTokenPriceValue(cost, maximumFractionDigits)} / 1M tokens`;
+	return `${formatTokenPriceValue(cost, maximumFractionDigits)} / 100万 tokens`;
 }
 
 /**
@@ -79,5 +79,5 @@ export function formatTokenPriceFull(cost?: number, maximumFractionDigits = DEFA
  */
 export function formatCharacterPriceFull(cost?: number, maximumFractionDigits = DEFAULT_TOKEN_PRICE_MAX_FRACTION_DIGITS): string {
 	if (cost === undefined || cost === null || !Number.isFinite(cost)) return "Not available";
-	return `${formatTokenPriceValue(cost, maximumFractionDigits)} / 1M characters`;
+	return `${formatTokenPriceValue(cost, maximumFractionDigits)} / 100万 字符`;
 }

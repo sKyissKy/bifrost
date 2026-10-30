@@ -115,8 +115,8 @@ describe("warpToolLabel", () => {
 			"ask_user",
 		];
 		for (const tool of tools) {
-			expect(warpToolLabel(tool), `${tool} has no label`).not.toBe(tool);
-			expect(warpToolLabel(tool, true), `${tool} has no running label`).not.toBe(tool);
+			expect(warpToolLabel(tool), `¥{tool} has no label`).not.toBe(tool);
+			expect(warpToolLabel(tool, true), `¥{tool} has no running label`).not.toBe(tool);
 		}
 	});
 
@@ -443,14 +443,14 @@ describe("formatWarpUsage", () => {
 describe("formatWarpUsage sub-cent costs", () => {
 	it("marks a positive cost below the display threshold", () => {
 		const label = formatWarpUsage({ total_tokens: 10, cost: { total_cost: 0.00001 } });
-		expect(label).not.toContain("$0.0000");
-		expect(label).toContain("<$0.0001");
+		expect(label).not.toContain("¥0.0000");
+		expect(label).toContain("<¥0.0001");
 	});
 
 	it("still shows costs the format can express", () => {
-		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 0.0012 } })).toContain("$0.0012");
-		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 0.0123 } })).toContain("$0.01");
-		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 1.5 } })).toContain("$1.50");
+		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 0.0012 } })).toContain("¥0.0012");
+		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 0.0123 } })).toContain("¥0.01");
+		expect(formatWarpUsage({ total_tokens: 10, cost: { total_cost: 1.5 } })).toContain("¥1.50");
 	});
 });
 
@@ -943,12 +943,12 @@ describe("parseWarpChartSpec", () => {
 
 describe("formatWarpChartValue", () => {
 	it.each([
-		["usd", 2.58, "$2.58"],
-		["usd", 0.0004, "$0.0004"],
-		// Below what four places show, a real cost is not rounded down to "$0.0000".
-		["usd", 0.00004, "<$0.0001"],
-		["usd", 0.0001, "$0.0001"],
-		["usd", 0, "$0"],
+		["usd", 2.58, "¥2.58"],
+		["usd", 0.0004, "¥0.0004"],
+		// Below what four places show, a real cost is not rounded down to "¥0.0000".
+		["usd", 0.00004, "<¥0.0001"],
+		["usd", 0.0001, "¥0.0001"],
+		["usd", 0, "¥0"],
 		["ms", 45000, "45.00s"],
 		["ms", 320.4, "320ms"],
 		["tokens", 956229, "956.2K"],

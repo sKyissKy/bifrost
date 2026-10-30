@@ -515,7 +515,7 @@ export function MetricStrip({ stats, requestHistogram, latencyHistogram, costHis
 						</>
 					}
 				>
-					<NumberFlow value={totalCost} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "USD" }} />
+					<NumberFlow value={totalCost} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "CNY" }} />
 				</MetricSegment>
 			</MetricStripCard>
 		</div>

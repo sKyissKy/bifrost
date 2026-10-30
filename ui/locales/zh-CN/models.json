@@ -1495,7 +1495,7 @@
 		"requestTypes": "请求类型",
 		"selectRequestTypes": "选择请求类型…",
 		"pricingFields": "定价字段",
-		"usdPerUnit": "（每单位美元）",
+		"usdPerUnit": "（每单位人民币 CNY）",
 		"removeField": "移除字段",
 		"searchAllFields": "搜索全部定价字段…",
 		"noFieldsMatch": "没有字段匹配“{{search}}”",

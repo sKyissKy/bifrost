@@ -199,7 +199,7 @@ export function RelayMetricStrip({ stats, histogram, loading, error }: RelayMetr
 						</>
 					}
 				>
-					<NumberFlow value={totalCost} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "USD" }} />
+					<NumberFlow value={totalCost} format={{ ...COMPACT_NUMBER_FORMAT, style: "currency", currency: "CNY" }} />
 				</MetricSegment>
 			</MetricStripCard>
 		</div>
